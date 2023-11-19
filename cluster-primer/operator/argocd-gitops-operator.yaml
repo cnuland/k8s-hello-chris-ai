@@ -7,9 +7,9 @@ spec:
   config:
     env:
     - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
-      value: operators, external-secrets
+      value: operators
     - name: CONTROLLER_CLUSTER_ROLE
-      value: gitops-controller
+      value: god-mode
   channel: alpha
   name: argocd-operator
   source: operatorhubio-catalog
