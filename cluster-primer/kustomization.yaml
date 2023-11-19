@@ -7,5 +7,4 @@ resources:
 - operator/argocd-gitops-operator.yaml
 - operator/argocd.yaml
 - gitops/app-of-apps.yaml
-- rbac/clusterrole.yaml
-
+- operator/rbac/clusterrole.yaml

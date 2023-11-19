@@ -17,7 +17,7 @@ spec:
     - /metadata/labels
   destination:
     name: ''
-    namespace: '*'
+    namespace: 'operators'
     server: 'https://kubernetes.default.svc'
   source:
     path: k8s/hello-chris/keda

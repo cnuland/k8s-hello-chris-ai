@@ -8,7 +8,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: '*'
+    namespace: 'operators'
     server: 'https://kubernetes.default.svc'
   source:
     path: k8s/operators/keda/overlays/default
