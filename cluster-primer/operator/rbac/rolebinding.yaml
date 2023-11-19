@@ -9,4 +9,7 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: argocd-operator-controller-manager
-  namespace: operators
+  namespace: argocd
+  - kind: ServiceAccount
+    name: openshift-gitops-argocd-application-controller
+    namespace: argocd

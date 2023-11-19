@@ -3,6 +3,6 @@ kind: Namespace
 metadata:
   name: operators
   labels:
-    argocd.argoproj.io/managed-by: operators
+    argocd.argoproj.io/managed-by: argocd
   annotations:
     argocd.argoproj.io/sync-options: ServerSideApply=true

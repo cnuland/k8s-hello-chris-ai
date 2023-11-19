@@ -1,12 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps
-  namespace: operators
+  name: argocd
+  namespace: argocd
 spec:
   destination:
     name: ''
-    namespace: 'operators'
+    namespace: '*'
     server: 'https://kubernetes.default.svc'
   source:
     path: k8s/apps

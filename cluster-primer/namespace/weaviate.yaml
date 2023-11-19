@@ -4,4 +4,4 @@ kind: Namespace
 metadata:
   name: weaviate
   labels:
-    argocd.argoproj.io/managed-by: operators
+    argocd.argoproj.io/managed-by: argocd
