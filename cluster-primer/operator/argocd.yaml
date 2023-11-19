@@ -6,6 +6,10 @@ metadata:
   labels:
     example: basic
 spec:
+  server:
+    ingress:
+      enabled: true
+    insecure: true
   resourceHealthChecks:
   - group: argoproj.io
     kind: Application
