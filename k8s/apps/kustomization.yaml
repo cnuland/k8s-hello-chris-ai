@@ -8,3 +8,5 @@ resources:
 - infra/onboarding.yaml
 - infra/triggers.yaml
 - operators.yaml
+- rbac/clusterrole.yaml
+- rbac/rolebinding.yaml
