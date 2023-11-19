@@ -11,7 +11,7 @@ spec:
   - name: deployment-name
     value: "pop-queue"
   - name: git-url
-    value: "https://github.com/cnuland/aro-hello-chris-ai.git"
+    value: "https://github.com/cnuland/k8s-hello-chris-ai.git"
   - name: git-revision
     value: "main"
   - name: IMAGE
