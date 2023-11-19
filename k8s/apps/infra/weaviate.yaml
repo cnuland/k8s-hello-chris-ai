@@ -9,7 +9,7 @@ metadata:
 spec:
   destination:
     name: ''
-    namespace: 'weaviate'
+    namespace: '*'
     server: 'https://kubernetes.default.svc'
   source:
     chart: weaviate
@@ -22,7 +22,12 @@ spec:
         value: "true"
   sources: []
   project: default
+  syncOptions:
+    - CreateNamespace=true
   syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        argocd.argoproj.io/managed-by: operators
     automated:
-      prune: false
+      prune: true
       selfHeal: true

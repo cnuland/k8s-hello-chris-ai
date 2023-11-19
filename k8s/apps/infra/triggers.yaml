@@ -28,8 +28,13 @@ spec:
   sources: []
   project: default
   syncPolicy:
-    syncOptions:
+  syncOptions:
+    - CreateNamespace=true
     - RespectIgnoreDifferences=true
+  syncPolicy:
+    managedNamespaceMetadata:
+      labels:
+        argocd.argoproj.io/managed-by: operators
     automated:
-      prune: false
+      prune: true
       selfHeal: true
