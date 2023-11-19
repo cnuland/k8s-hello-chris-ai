@@ -4,6 +4,12 @@ metadata:
   name: my-argocd-operator
   namespace: operators
 spec:
+  config:
+    env:
+    - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+      value: operators, external-secrets
+    - name: CONTROLLER_CLUSTER_ROLE
+      value: gitops-controller
   channel: alpha
   name: argocd-operator
   source: operatorhubio-catalog
