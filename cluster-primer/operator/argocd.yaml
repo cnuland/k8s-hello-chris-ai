@@ -1,11 +1,10 @@
 apiVersion: argoproj.io/v1alpha1
 kind: ArgoCD
 metadata:
-  annotations:
-    argocd.argoproj.io/sync-options: Validate=false,ServerSideApply=true
-    argocd.argoproj.io/sync-wave: "0"
-  name: openshift-gitops
+  name: argocd
   namespace: operators
+  labels:
+    example: basic
 spec:
   resourceHealthChecks:
   - group: argoproj.io
