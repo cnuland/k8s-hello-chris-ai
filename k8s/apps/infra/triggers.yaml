@@ -27,7 +27,6 @@ spec:
       recurse: false
   sources: []
   project: default
-  syncPolicy:
   syncOptions:
     - CreateNamespace=true
     - RespectIgnoreDifferences=true
