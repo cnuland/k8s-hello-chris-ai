@@ -7,5 +7,4 @@ resources:
 - app/hello-chris.yaml
 - infra/onboarding.yaml
 - infra/triggers.yaml
-- infra/weaviate.yaml
 - operators.yaml
