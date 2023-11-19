@@ -1,0 +1,35 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: service-bus-trigger
+  namespace: openshift-gitops
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
+spec:
+  ignoreDifferences:
+  - group: "*"
+    kind: "ScaledJob"
+    jsonPointers:
+    - /metadata/labels
+  - group: "*"
+    kind: "TriggerAuthentication"
+    jsonPointers:
+    - /metadata/labels
+  destination:
+    name: ''
+    namespace: '*'
+    server: 'https://kubernetes.default.svc'
+  source:
+    path: k8s/hello-chris/keda
+    repoURL: 'https://github.com/cnuland/aro-hello-chris-ai.git'
+    targetRevision: HEAD
+    directory:
+      recurse: false
+  sources: []
+  project: default
+  syncPolicy:
+    syncOptions:
+    - RespectIgnoreDifferences=true
+    automated:
+      prune: false
+      selfHeal: true

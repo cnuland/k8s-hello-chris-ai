@@ -1,0 +1,26 @@
+apiVersion: tekton.dev/v1beta1
+kind: PipelineRun
+metadata:
+  name: pop-queue-build
+  namespace: hello-chris
+spec:
+  serviceAccountName: pipeline
+  pipelineRef:
+    name: pop-queue-pipeline
+  params:
+  - name: deployment-name
+    value: "pop-queue"
+  - name: git-url
+    value: "https://github.com/cnuland/aro-hello-chris-ai.git"
+  - name: git-revision
+    value: "main"
+  - name: IMAGE
+    value: "quay.io/cnuland/azure-pop-queue"
+  - name: TLSVERIFY
+    value: "false"
+  - name: working-dir
+    value: "./apps"
+  workspaces:
+  - name: shared-workspace
+    persistentvolumeclaim:
+      claimName: tekton-pvc
