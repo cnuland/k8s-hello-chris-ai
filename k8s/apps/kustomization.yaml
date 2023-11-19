@@ -8,3 +8,4 @@ resources:
 - infra/onboarding.yaml
 - infra/triggers.yaml
 - infra/weaviate.yaml
+- operators.yaml

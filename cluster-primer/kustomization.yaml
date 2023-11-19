@@ -8,3 +8,4 @@ resources:
 - operator/argocd.yaml
 - gitops/app-of-apps.yaml
 - operator/rbac/clusterrole.yaml
+- operator/rbac/rolebinding.yaml

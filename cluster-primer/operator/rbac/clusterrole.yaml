@@ -2,8 +2,14 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   # "namespace" omitted since ClusterRoles are not namespaced
-  name: god-mode
+  name: godmode
 rules:
-- apiGroups: [""] #specifies core api groups
-  resources: ["*"]
-  verbs: ["*"]
+- apiGroups:
+  - "*"
+  resources:
+  - "*"
+  verbs:
+  - Get
+  - List
+  - Watch
+  - Patch
