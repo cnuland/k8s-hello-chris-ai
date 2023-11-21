@@ -1,7 +1,0 @@
-apiVersion: image.openshift.io/v1
-kind: ImageStream
-metadata:
-  labels:
-    application: pop-queue
-  name: pop-queue
-  namespace: hello-chris

@@ -1,1 +1,3 @@
-cluster-primer/ignored/
+cluster-primer/ignored
+.DS_Store
+cluster-primer/.DS_Store
