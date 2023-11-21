@@ -6,6 +6,7 @@ resources:
 - infra/external-secrets.yaml
 - app/hello-chris.yaml
 - infra/onboarding.yaml
+- infra/keda.yaml
 - infra/triggers.yaml
 - operators.yaml
 - rbac/clusterrole.yaml
