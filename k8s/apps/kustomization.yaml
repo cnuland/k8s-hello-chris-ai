@@ -10,3 +10,4 @@ resources:
 - operators.yaml
 - rbac/clusterrole.yaml
 - rbac/rolebinding.yaml
+- infra/weaviate.yaml
