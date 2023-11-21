@@ -4,8 +4,6 @@ metadata:
   name: og-single
   namespace: tekton
 spec:
-  targetNamespaces:
-  - tekton
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription

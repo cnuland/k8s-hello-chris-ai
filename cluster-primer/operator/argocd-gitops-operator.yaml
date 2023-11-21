@@ -4,8 +4,6 @@ metadata:
   name: og-single
   namespace: argocd
 spec:
-  targetNamespaces:
-  - argocd
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
