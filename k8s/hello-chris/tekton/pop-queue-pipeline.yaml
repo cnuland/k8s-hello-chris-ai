@@ -37,11 +37,11 @@ spec:
     - name: output
       workspace: shared-workspace
     params:
-    - name: url
+    - name: URL
       value: $(params.git-url)
-    - name: deleteExisting
+    - name: DELETE_EXISTING
       value: "true"
-    - name: revision
+    - name: REVISION
       value: $(params.git-revision)
   - name: build-image
     taskRef:
