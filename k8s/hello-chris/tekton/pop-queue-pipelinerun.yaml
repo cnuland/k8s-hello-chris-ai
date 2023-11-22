@@ -7,6 +7,9 @@ spec:
   serviceAccountName: pipeline
   pipelineRef:
     name: pop-queue-pipeline
+  podTemplate:
+    securityContext:
+      fsGroup: 65532
   params:
   - name: deployment-name
     value: "pop-queue"
