@@ -22,3 +22,7 @@ az ad sp create-for-rbac --name myKeyVaultServicePrincipal --role reader --scope
 ```
 oc create secret docker-registry dockerconfigjson --docker-server=quay.io --docker-username=<username> --docker-password=<pass> --docker-email=test@acme.com -n hello-chris
 ```
+
+```
+argocd app sync hello-chris
+```
