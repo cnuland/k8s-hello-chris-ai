@@ -1,29 +1,28 @@
 apiVersion: tekton.dev/v1beta1
 kind: PipelineRun
 metadata:
-  name: pop-queue-build
-  namespace: hello-chris
+  generateName: clone-build-push-run-
 spec:
-  serviceAccountName: pipeline
   pipelineRef:
-    name: pop-queue-pipeline
+    name: clone-build-push
   podTemplate:
     securityContext:
       fsGroup: 65532
-  params:
-  - name: deployment-name
-    value: "pop-queue"
-  - name: git-url
-    value: "https://github.com/cnuland/k8s-hello-chris-ai.git"
-  - name: git-revision
-    value: "main"
-  - name: IMAGE
-    value: "quay.io/cnuland/azure-pop-queue"
-  - name: TLSVERIFY
-    value: "false"
-  - name: working-dir
-    value: "./apps"
   workspaces:
-  - name: shared-workspace
+  - name: shared-data
     persistentvolumeclaim:
       claimName: tekton-pvc
+  - name: docker-credentials
+    secret:
+      secretName: docker-credentials
+  params:
+  - name: repo-url
+    value: "https://github.com/cnuland/k8s-hello-chris-ai.git"
+  - name: image-reference
+    value: "quay.io/cnuland/azure-pop-queue:latest"
+  - name: docker-path
+    value: "./$(params.working-dir)/Dockerfile"
+  - name: context
+    value: "./apps"
+  - name: git-revision
+    value: "main"

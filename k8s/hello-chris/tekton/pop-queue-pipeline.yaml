@@ -1,63 +1,50 @@
 apiVersion: tekton.dev/v1beta1
 kind: Pipeline
 metadata:
-  name: pop-queue-pipeline
-  namespace: hello-chris
+  name: clone-build-push
 spec:
-  workspaces:
-  - name: shared-workspace
+  description: |
+    This pipeline clones a git repo, builds a Docker image with Kaniko and
+    pushes it to a registry    
   params:
-  - name: deployment-name
+  - name: repo-url
     type: string
-    description: name of the deployment to be patched
-  - name: git-url
+  - name: image-reference
     type: string
-    description: url of the git repo for the code of deployment
-  - name: git-revision
+  - name: docker-path
     type: string
-    description: revision to be used from repo of the code for deployment
-    default: "master"
-  - name: IMAGE
+  - name: context
     type: string
-    description: image to be built from the code
-  - name: TLSVERIFY
-    type: string
-    default: "false"
-    description: tls verification
-  - name: working-dir
-    type: string
-    default: "api"
-    description: default working directory to build from
+  workspaces:
+  - name: shared-data
+  - name: docker-credentials
   tasks:
-  - name: fetch-repository
+  - name: fetch-source
     taskRef:
-      name: git
-      kind: Task
+      name: git-clone
     workspaces:
     - name: output
-      workspace: shared-workspace
+      workspace: shared-data
     params:
-    - name: URL
-      value: $(params.git-url)
-    - name: DELETE_EXISTING
-      value: "true"
-    - name: REVISION
-      value: $(params.git-revision)
-  - name: build-image
+    - name: url
+      value: $(params.repo-url)
+  - name: build-push
+    runAfter: ["fetch-source"]
     taskRef:
-      name: buildah
-      kind: Task
+      name: kaniko
+    workspaces:
+    - name: source
+      workspace: shared-data
+    - name: dockerconfig
+      workspace: docker-credentials
     params:
     - name: IMAGE
-      value: $(params.IMAGE)
+      value: $(params.image-reference)
     - name: TLSVERIFY
-      value: $(params.TLSVERIFY)
+      default: "false"
     - name: DOCKERFILE
-      value: "./$(params.working-dir)/Dockerfile"
-    workspaces:
-    - name: output
-      workspace: shared-workspace
-    - name: source
-      workspace: shared-workspace
-    runAfter:
-    - fetch-repository
+      value: $(params.docker-path)
+      default: "./"
+    - name: CONTEXT
+      default: ./
+      value: $(params.context)
