@@ -21,7 +21,7 @@ spec:
   tasks:
   - name: fetch-source
     taskRef:
-      name: git-clone
+      name: git
     workspaces:
     - name: output
       workspace: shared-data
