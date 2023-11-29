@@ -46,5 +46,5 @@ spec:
       value: $(params.docker-path)
       default: "./"
     - name: CONTEXT
-      default: ./
+      default: "./"
       value: $(params.context)
