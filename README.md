@@ -40,6 +40,7 @@ oc create secret docker-registry dockerconfigjson --docker-server=quay.io --dock
 argocd app sync hello-chris
 ```
 ```
+argocd app terminate-op hello-chris
 ```
 useful commands
 ```
