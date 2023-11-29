@@ -21,7 +21,7 @@ spec:
   - name: image-reference
     value: "quay.io/cnuland/azure-pop-queue:latest"
   - name: docker-path
-    value: "./$(params.working-dir)/Dockerfile"
+    value: "./Dockerfile"
   - name: context
     value: "./apps"
   - name: git-revision
