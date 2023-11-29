@@ -7,6 +7,6 @@ RUN apt-get update && apt-get install -y \
     python3.3 \
     python3-pip
 
-RUN pip install -r /opt/app-root/src/requirements.txt
+RUN pip3 install -r /opt/app-root/src/requirements.txt
 
 CMD ["python3", "pop-queue.py"]
