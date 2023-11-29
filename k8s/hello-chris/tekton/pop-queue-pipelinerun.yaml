@@ -23,6 +23,6 @@ spec:
   - name: docker-path
     value: "./Dockerfile"
   - name: context
-    value: "./apps"
+    value: "./"
   - name: git-revision
     value: "main"

@@ -11,6 +11,19 @@ az servicebus queue authorization-rule keys list --resource-group <resource-grou
 ```
 oc create secret generic namespace-secret --from-literal=connection="Endpoint=sb://<endpoint>;SharedAccessKeyName=<sa-name>;SharedAccessKey=<primary-key>"
 ```
+Docker Secret for Kaniko
+```
+cat ~/.docker/config.json | base64
+```
+```
+apiVersion: v1
+kind: Secret
+metadata:
+  name: docker-credentials
+  namespace: hello-chris
+data:
+  config.json: ewoJImF1d....
+```
 
 or allow External Secret Operator pull it in.
 If using an external secret operator you will need the initial service principal to access the Azure key vault.
@@ -25,4 +38,10 @@ oc create secret docker-registry dockerconfigjson --docker-server=quay.io --dock
 
 ```
 argocd app sync hello-chris
+```
+```
+```
+useful commands
+```
+kubectl debug clone-build-push-build-push-pod -n hello-chris --image=busybox:1.28 -i --target=step-build-and-push
 ```
