@@ -17,3 +17,7 @@ spec:
   name: keda
   source: operatorhubio-catalog
   sourceNamespace: olm
+  config:
+    env:
+    - name: WATCH_NAMESPACES
+      value: "['hello-chris']"
