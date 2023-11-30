@@ -1,18 +1,17 @@
-#Moving this into hello-chris to make the implementation easier but for production builds this should be in a keda namespace
 kind: OperatorGroup
 apiVersion: operators.coreos.com/v1
 metadata:
   name: og-single
-  namespace: hello-chris
+  namespace: keda
 spec:
   targetNamespaces:
-  - hello-chris
+  - keda
 ---
 apiVersion: operators.coreos.com/v1alpha1
 kind: Subscription
 metadata:
   name: my-keda
-  namespace: hello-chris
+  namespace: keda
 spec:
   channel: stable
   name: keda

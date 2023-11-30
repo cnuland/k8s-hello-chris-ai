@@ -6,6 +6,7 @@ resources:
 - namespace/weaviate.yaml
 - namespace/tekton.yaml
 - namespace/argocd.yaml
+- namespace/keda.yaml
 - operator/argocd-gitops-operator.yaml
 - operator/argocd.yaml
 - gitops/app-of-apps.yaml
